@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +9,85 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(248, 242, 245);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  max-width: 320px;
+  max-height: 640px;
+  overflow: hidden;
+  overflow-y: auto;
+  border-radius: 20px;
+  background-color: #0D0D15;
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
+  color: #fff;
+  margin: 2rem auto;
+  box-shadow: rgba(100, 100, 100, 0.5) 0px 0px 20px;
+}
+
+/* Search button */
+.search-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6rem;
+  height: 4rem;
+  border-radius: 0 0 0 1rem;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(100, 100, 100, 0.5) 0px 0px 20px;
+  background: linear-gradient(180deg, #FF0A3C 15.66%, #DE1854 88.58%);
+  box-shadow: 4px -4px 8px rgba(222, 24, 84, 0.25);
+}
+.carrusel{
+  position: relative;
+  width: cal(100% - 8rem);
+  height: 230px;
+}
+.search-btn img{
+  width: 2rem;
+  height: 2rem;
+}
+
+.logo {
+  position: relative;
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.venue-icon {
+  width: 1.4rem;
+}
+.float-menu{
+  width: cal(100% -8rem);
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: rgba(100, 100, 100, 0.5) 0px 0px 20px;
+  background: linear-gradient(180deg, #FF0A3C 15.66%, #DE1854 88.58%);
+  box-shadow: 4px -4px 8px rgba(222, 24, 84, 0.25);
+}
+.menu-container{
+  background: linear-gradient(0deg, rgba(13, 13, 21, 0.95) 20%, rgba(13, 13, 21, 0) 80%);
+}
+@media screen and (max-width: 768px) {
+  #root {
+    max-width: 100%;
+    max-height: 100vh;
+    overflow: scroll;
+    border-radius: 0;
+    margin: 0;
+  }
 }
