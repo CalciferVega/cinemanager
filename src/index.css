@@ -46,7 +46,16 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: rgba(100, 100, 100, 0.5) 0px 0px 20px;
+  background: linear-gradient(180deg, #FF0A3C 15.66%, #DE1854 88.58%);
+  box-shadow: 4px -4px 8px rgba(222, 24, 84, 0.25);
+}
+.next-btn{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 4rem;
+  border-radius: 1rem 0 0 0;
   background: linear-gradient(180deg, #FF0A3C 15.66%, #DE1854 88.58%);
   box-shadow: 4px -4px 8px rgba(222, 24, 84, 0.25);
 }
@@ -73,6 +82,8 @@ code {
   width: cal(100% -8rem);
   height: 3.5rem;
   border-radius: 0.5rem;
+  top:0;
+  left: 0;
   justify-content: space-evenly;
   align-items: center;
   box-shadow: rgba(100, 100, 100, 0.5) 0px 0px 20px;
@@ -81,7 +92,63 @@ code {
 }
 .menu-container{
   background: linear-gradient(0deg, rgba(13, 13, 21, 0.95) 20%, rgba(13, 13, 21, 0) 80%);
+  position: fixed;
   width: 100%;
+}
+.menu-venue h1{
+  color: #fff;
+  font-size: 1.5rem;
+}
+.menu-venue .menu-venue-item{
+  width: 95%;
+  height: 3rem;
+  text-align: left;
+  border-bottom: 1px solid #fff;
+}
+.menu-venue{
+  min-height: 700px;
+}
+.movie-body{
+  width: cal(100% - 8rem);
+  padding: 2rem;
+  padding-bottom: 6rem;
+}
+.border-blue{
+  margin: 1rem 0;
+  border: 1px solid #0047FF;
+  width: 100%;
+}
+.select-time-item {
+  padding: 0.2rem 0.5rem;
+  border: 1px solid #949494;
+  border-radius: 0.5rem;
+  color: #949494;
+  margin: .5rem;
+}
+.select-time-item.selected{
+  color: #fff;
+  font-weight: 700;
+  background: linear-gradient(180deg, #FF0A3C 15.66%, #DE1854 88.58%);
+  border: none;
+}
+.date-button{
+  width: 100%;
+  height: 3rem;
+  padding: .8rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(180deg, #FF0A3C 15.66%, #DE1854 88.58%);
+  box-shadow: 4px -4px 8px rgba(222, 24, 84, 0.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tickets-container{
+  width: 100%;
+  height: 100vh;
+  padding: 2rem;
+}
+.tickets-footer{
+  border-top: 1px solid #0047FF;
 }
 @media screen and (max-width: 768px) {
   #root {
