@@ -1,17 +1,15 @@
-import BackButton from "../../components/BackButton"
-import getTickets from "../../services/getTickets"
-import TicketItem from "../../components/TicketItem"
 import { useState } from "react"
+import MovieHeader from "../../components/MovieHeader";
+import BackButton from "../../components/BackButton"
+import TicketItem from "../../components/TicketItem"
+import NextButton from "../../components/NextButton"
+import getTickets from "../../services/getTickets"
 
 export default function Tickets() {
   const tickets = getTickets();
-  //const ticketPrices = tickets.map(ticket => {ticket.price, ticket.id});
   const [total, setTotal] = useState(0);
   
 
-  const handleNext = () => {
-    window.location.assign("/selectseats");
-  }
   const handleSelectTicket = (price, action) => {
     if(action === "decrement") {
       setTotal(total - price);
@@ -31,10 +29,7 @@ export default function Tickets() {
           </div>
         </div>
         <div className="tickets-body w-full mt-4">
-          <div className="tickets-body-header">
-            <h2 className="mb-2">Top Gun Maverick</h2>
-            <span className="mt-2 block">Sunday 2, July 2022  | 17:30</span>
-          </div>
+          <MovieHeader movieName={"Top gun Maverick"} date={'Sunday 2, July 2022'}  hour={'17:30'}/>
           <div className="tickets-conteiner grid gap-4 w-full mt-4">
             {tickets.map((ticket) => {
               return <TicketItem ticket={ticket} key={ticket.id} handleSelectTicket={handleSelectTicket}/>
@@ -44,9 +39,7 @@ export default function Tickets() {
           <div className="tickets-footer flex justify-between items-center mt-16 pt-4 px-2">
             <strong className="text-xl">Total:</strong> <span className="text-xl">$ {total.toFixed(2)}</span>  
           </div>
-          <button className="next-btn" onClick={handleNext}>
-            Next
-          </button>
+          <NextButton to={"/selectseats"} action={'Next'} />
         </div>
     </>
   )
