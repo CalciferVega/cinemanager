@@ -150,6 +150,9 @@ code {
 .tickets-footer{
   border-top: 1px solid #0047FF;
 }
+.selected{
+  border: 1px solid #0047FF;
+}
 @media screen and (max-width: 768px) {
   #root {
     max-width: 100%;

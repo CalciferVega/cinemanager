@@ -2,63 +2,8 @@ import BackButton from "../../components/BackButton";
 import MovieHeader from "../../components/MovieHeader";
 import NextButton from "../../components/NextButton";
 import SeatsGrid from "../../components/SeatsGrid";
+import getSeats from "../../services/getSeats";
 
-let dato = [
-    {
-        id: 1,
-        name: 'A',
-        maxSeats: 10,
-        row: [1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
-    },
-    {
-        id: 2,
-        name: 'A',
-        maxSeats: 10,
-        row: [1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
-    },
-    {
-        id: 3,
-        name: 'A',
-        maxSeats: 10,
-        row: [1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
-    },
-    {
-        id: 4,
-        name: 'A',
-        maxSeats: 10,
-        row: [1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
-    },
-    {
-        id: 5,
-        name: 'A',
-        maxSeats: 10,
-        row: [1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
-    },
-    {
-        id: 6,
-        name: 'A',
-        maxSeats: 10,
-        row: [1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
-    },
-    {
-        id: 7,
-        name: 'A',
-        maxSeats: 10,
-        row: [1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
-    },
-    {
-        id: 8,
-        name: 'A',
-        maxSeats: 8,
-        row: [1, 1, 1, 1, 1, 0, 0, 0,]
-    },
-    {
-        id: 1,
-        name: 'A',
-        maxSeats: 7,
-        row: [1, 1, 1, 1, 1, 1, 1, 0, 1]
-    }
-]
 const handleSelectSeat = (event) => {
     console.log(event.target);
     if(event.target.src.includes('avaible')){
@@ -67,6 +12,9 @@ const handleSelectSeat = (event) => {
         event.target.src = "../assets/seat_avaible.png";
     }
 }
+
+let dato = getSeats()
+
 export default function Seats() {
     return (
         <div className="tickets-container">
@@ -80,7 +28,7 @@ export default function Seats() {
                 <SeatsGrid seats={dato} handleSelectSeat={handleSelectSeat} />
             </div>
             </div>
-            <NextButton to={"/selectseats"} action={'Next'} />
+            <NextButton to={"/payment"} action={'Next'} />
         </div>
                 
     )
