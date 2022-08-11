@@ -44,7 +44,7 @@ const movies = [
     {
         id: 6,
         name: "The batman",
-        image :"https://www.dondeir.com/wp-content/uploads/2020/01/the-batman-2022-poster.jpg",
+        image :"https://www.quepeliculaver.com/uploads/2022/02/the-batman-posters-individuales-robert-pattinson.jpg",
         description: "A reclusive billionaire who obsessively protects Gotham City as a masked vigilante to cope with his traumatic past. Batman is around 30 years old and is not yet an experienced crime fighter, as director Matt Reeves wanted to explore the character before he becomes fully formed",
         genre: "Action"
     },

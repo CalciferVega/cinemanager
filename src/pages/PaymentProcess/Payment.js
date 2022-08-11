@@ -9,56 +9,43 @@ import getMovie from "../../services/getMovie";
 export default function Payment() {
   const movieId = Number(localStorage.getItem("MOVIE_SELECTED"));
   const movie = getMovie(movieId);
-  const paymentMethods = [
+  let paymentMethods = [
     {
       id: 1,
       name: "Credit Card",
       icon: "credit-card",
-      description: "Pay with your credit card",
-      selected: true,
+      description: "Pay with your credit card"
     },
     {
       id: 2,
       name: "Debit Card",
       icon: "credit-card",
-      description: "Pay with your debit card",
-      selected: false,
+      description: "Pay with your debit card"
     },
     {
       id: 3,
       name: "Paypal",
       icon: "paypal",
-      description: "Pay with your paypal account",
-      selected: false,
+      description: "Pay with your paypal account"
     },
     {
       id: 4,
       name: "Bitcoin",
       icon: "bitcoin",
-      description: "Pay with your bitcoin account",
-      selected: false,
+      description: "Pay with your bitcoin account"
     }
   ];
-  let [selectedPayment, setSelectedPayment] = useState(paymentMethods);
+
+  let [selectedPayment, setSelectedPayment] = useState(1);
 
 
     const handleSelectPayment = (event) => {
       event.stopPropagation();
-      const id = event.target.id;
-      const classListItem = event.target.classList;
-      console.log(classListItem);
-    
-      if (classListItem.contains("selected")) {
-        classListItem.remove("selected");
-        let res = selectedPayment.find((payment) => payment.id === Number(id));
-        console.log(res)
-      } else {
-        document.querySelectorAll('.selected').forEach(item => {
-          item.classList.remove("selected");
-        });
-        classListItem.add("selected");
-        setSelectedPayment(selectedPayment.find((payment) => payment.id === id).selected = true);
-        console.log(selectedPayment);
+      const id = Number(event.target.id)
+
+      if (selectedPayment === id) return
+      else {
+        setSelectedPayment(id)
       }
     }
   useEffect(() => {
@@ -76,8 +63,8 @@ export default function Payment() {
           <MovieHeader movieName={movie.name} date={'Sunday 2, July 2022'}  hour={'17:30'}/>
         </div>
         <div className="tickets-conteiner grid gap-4 w-full mt-4">
-        {selectedPayment.map((payment) => {
-              return <PaymentItem payment={payment} key={payment.id} selected={payment.selected} handleSelectPayment={handleSelectPayment}/>
+        {paymentMethods.map((payment) => {
+              return <PaymentItem payment={payment} key={payment.id} selected={Number(selectedPayment)} handleSelectPayment={handleSelectPayment}/>
             })}
         </div>
 

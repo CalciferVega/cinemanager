@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
 
-export default function PaymentItem({payment, handleSelectPayment}) {
-    const {id, name, selected } = payment;
-    const [check, setCheck] = useState(selected);
+export default function PaymentItem({payment, handleSelectPayment, selected}) {
+    const {id, name } = payment;
+    const check = selected === id ? true : false;
 
+    
     let itemDefaulClasses = 'tickets-item tickets-item flex justify-between rounded-lg border border-white py-2 px-4 mt-2 items-center';
     return (
         <button className={`${itemDefaulClasses} ${check ? 'selected': null}`} id={id} onClick={(event) => handleSelectPayment(event) }>
