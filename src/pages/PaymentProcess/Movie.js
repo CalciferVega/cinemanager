@@ -1,18 +1,25 @@
 import BackButton from "../../components/BackButton";
+import getMovie from "../../services/getMovie";
 
 export default function Movie() {
+  const idMovie = Number(window.location.pathname.split("/")[2]);
   const handleNext = () => {
+    localStorage.removeItem("MOVIE_SELECTED");
+    localStorage.setItem("MOVIE_SELECTED", idMovie);
     window.location.assign("/selecttotal");
   }
+
+  const movie = getMovie(idMovie);
+  console.log(movie);
   return (
     <div className="movie-container">
       <div className="movie-header">
         <BackButton sticky={true} />
-        <img src="../movies/top-1.png" alt="Top Gun" />
+        <img src={movie.image} alt="Top Gun" />
       </div>
       <div className="movie-body">
         <div className="movie-body-header">
-          <h1 className="mb-2">Top Gun Maverick</h1>
+          <h1 className="mb-4">{movie.name}</h1>
           <section className="mb-2 flex justify-between">
             <span className="text-gray-600">
               1h 30m | Action
@@ -24,8 +31,13 @@ export default function Movie() {
             
           </section>
           <hr className="border-blue" />
-          <section className="mb-2">
-          <h3 className="mb-2">Choose Date</h3>
+          <section className="mb-8">
+            <span className="text-gray-600">
+              {movie.description}
+            </span>
+          </section>
+          <section className="mb-8">
+          <h3 className="mb-4">Choose Date</h3>
            <button className="date-button">
              <span>
                Today

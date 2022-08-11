@@ -4,9 +4,11 @@ import NextButton from "../../components/NextButton";
 import MovieHeader from "../../components/MovieHeader";
 import PaymentItem from "../../components/Payments";
 import { useEffect } from "react";
-
+import getMovie from "../../services/getMovie";
 
 export default function Payment() {
+  const movieId = Number(localStorage.getItem("MOVIE_SELECTED"));
+  const movie = getMovie(movieId);
   const paymentMethods = [
     {
       id: 1,
@@ -71,7 +73,7 @@ export default function Payment() {
           </div>
         </div>
         <div className="tickets-body w-full mt-4">
-          <MovieHeader movieName={"Top gun Maverick"} date={'Sunday 2, July 2022'}  hour={'17:30'}/>
+          <MovieHeader movieName={movie.name} date={'Sunday 2, July 2022'}  hour={'17:30'}/>
         </div>
         <div className="tickets-conteiner grid gap-4 w-full mt-4">
         {selectedPayment.map((payment) => {

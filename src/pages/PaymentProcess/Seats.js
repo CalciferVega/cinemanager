@@ -3,6 +3,10 @@ import MovieHeader from "../../components/MovieHeader";
 import NextButton from "../../components/NextButton";
 import SeatsGrid from "../../components/SeatsGrid";
 import getSeats from "../../services/getSeats";
+import getMovie from "../../services/getMovie"
+
+const movieId = Number(localStorage.getItem("MOVIE_SELECTED"));
+const movie = getMovie(movieId);
 
 const handleSelectSeat = (event) => {
     console.log(event.target);
@@ -23,7 +27,7 @@ export default function Seats() {
                 <BackButton /><h1 className="ml-1 pt-2 text-2xl">Choose Tickets</h1>
             </div>
             <div className="tickets-body w-full mt-4">
-                <MovieHeader movieName={"Top gun Maverick"} date={'Sunday 2, July 2022'}  hour={'17:30'}/>
+                <MovieHeader movieName={movie.name} date={'Sunday 2, July 2022'}  hour={'17:30'}/>
                 <img className="mt-8"  src="../assets/screen.png" alt="screen" />
                 <SeatsGrid seats={dato} handleSelectSeat={handleSelectSeat} />
             </div>

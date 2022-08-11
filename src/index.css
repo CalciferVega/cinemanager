@@ -153,6 +153,11 @@ code {
 .selected{
   border: 1px solid #0047FF;
 }
+.movie-body h1{
+  font-size: 1.5rem;
+  color: #fff;
+}
+
 @media screen and (max-width: 768px) {
   #root {
     max-width: 100%;
@@ -161,5 +166,13 @@ code {
     overflow: scroll;
     border-radius: 0;
     margin: 0;
+    
+  }
+  .movie-header{
+    overflow: hidden;
+    max-height: 300px;
+  }
+  .movie-item img{
+    width: 100%;
   }
 }
