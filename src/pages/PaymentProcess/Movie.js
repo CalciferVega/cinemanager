@@ -1,8 +1,12 @@
 import BackButton from "../../components/BackButton";
 import getMovie from "../../services/getMovie";
+import { useState } from "react";
+import VideoModal from "../../components/VideoModal";
 
 export default function Movie() {
   const idMovie = Number(window.location.pathname.split("/")[2]);
+  const [showModal, setShowModal] = useState(false);
+
   const handleNext = () => {
     localStorage.removeItem("MOVIE_SELECTED");
     localStorage.setItem("MOVIE_SELECTED", idMovie);
@@ -10,8 +14,15 @@ export default function Movie() {
   }
 
   const movie = getMovie(idMovie);
+  const openVideo = () => {
+    setShowModal(true);
+  }
+  const closeVideo = () => {
+    setShowModal(false);
+  }
   console.log(movie);
   return (
+    <>
     <div className="movie-container">
       <div className="movie-header">
         <BackButton sticky={true} />
@@ -24,7 +35,7 @@ export default function Movie() {
             <span className="text-gray-600">
               1h 30m | Action
             </span>
-            <button className="watch-button">
+            <button className="watch-button" onClick={openVideo}>
               <img src="../assets/watchtrailer.svg" alt="Play" className="inline-block mr-2" />
               Watch trailer
             </button>
@@ -80,5 +91,7 @@ export default function Movie() {
         </div>
       </div>
     </div>
+    {showModal && <VideoModal url={movie.trailer} handleClose={closeVideo}/>}
+    </>
   )
 }

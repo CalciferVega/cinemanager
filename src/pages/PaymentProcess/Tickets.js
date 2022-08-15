@@ -44,6 +44,7 @@ export default function Tickets() {
           </div>
           <NextButton to={"/selectseats"} action={'Next'} />
         </div>
+        
     </>
   )
 }

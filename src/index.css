@@ -50,12 +50,12 @@ code {
   box-shadow: 4px -4px 8px rgba(222, 24, 84, 0.25);
 }
 .next-btn{
-  position: fixed;
+  position: sticky;
   bottom: 0;
   right: 0;
-  width: 50%;
+  width: 100%;
   height: 4rem;
-  border-radius: 1rem 0 0 0;
+  border-radius: 1rem 1rem 0 0;
   background: linear-gradient(180deg, #FF0A3C 15.66%, #DE1854 88.58%);
   box-shadow: 4px -4px 8px rgba(222, 24, 84, 0.25);
 }
@@ -111,7 +111,7 @@ code {
 .movie-body{
   width: cal(100% - 8rem);
   padding: 2rem;
-  padding-bottom: 6rem;
+  padding-bottom: 0;
 }
 .border-blue{
   margin: 1rem 0;
@@ -157,7 +157,45 @@ code {
   font-size: 1.5rem;
   color: #fff;
 }
+.modal-overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
 
+.modal-container{
+  position: relative;
+  width: 1280px;
+  height: 720px;
+  background: #0D0D15;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem;
+  z-index: 101;
+}
+.modal-container iframe{
+  width: 100%;
+  height: 100%;
+}
+.modal-container .modal-header{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.modal-header img{
+  width: 1.2rem;
+  height: 1.2rem;
+}
 @media screen and (max-width: 768px) {
   #root {
     max-width: 100%;
@@ -174,5 +212,18 @@ code {
   }
   .movie-item img{
     width: 100%;
+  }
+  .next-btn{
+    position: fixed;
+    width: 50%;
+    border-radius: 1rem 0 0 0;
+  }
+  .movie-body{
+    padding-bottom: 6rem;
+  }
+
+  .modal-container{
+    width: 90%;
+    height: 40vh;
   }
 }
